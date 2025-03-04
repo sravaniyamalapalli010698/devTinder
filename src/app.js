@@ -7,7 +7,7 @@ const http = require("http");
 
 require("dotenv").config();
 
-require("./utils/cronjob");
+// require("./utils/cronjob");
 
 app.use(
   cors({
@@ -30,11 +30,11 @@ app.use("/", authRouter);
 app.use("/", profileRouter);
 app.use("/", requestRouter);
 app.use("/", userRouter);
-app.use("/", paymentRouter);
+// app.use("/", paymentRouter);
 app.use("/", chatRouter);
 
 const server = http.createServer(app);
-initializeSocket(server);
+// initializeSocket(server);
 
 connectDB()
   .then(() => {
@@ -44,5 +44,5 @@ connectDB()
     });
   })
   .catch((err) => {
-    console.error("Database cannot be connected!!");
+    console.error("Database cannot be connected!!", err);
   });
